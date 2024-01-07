@@ -49,7 +49,7 @@ while playGame:
                 print("Холодно")
             else:
                 print("Ледяной ветер")
-                
+
             if coutInput == 7:
                 score -= 10
 

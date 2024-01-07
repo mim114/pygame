@@ -58,7 +58,6 @@ def get_coords(id_num):
 	x = (pos[0] + pos[2]) / 2
 	y = (pos[1] + pos[3]) / 2
 	return x, y
-	
 
 def del_bubble(i):
 	del bub_r[i]
@@ -72,14 +71,12 @@ def clean_up_bubs():
 		x, y = get_coords(bub_id[i]) # находит координаты пузыря
 		if x < -GAP:
 			del_bubble(i)
-			
-			
+
 def distance(id1, id2):
 	x1, y1 = get_coords(id1)
 	x2, y2 = get_coords(id2)
 	return sqrt((x2 - x1)**2 + (y2 - y1)**2)
-	
-	
+
 def collision():
 	points = 0
 	for bub in range(len(bub_id)-1, -1, -1):
@@ -87,7 +84,6 @@ def collision():
 			points += (bub_r[bub] + bub_speed[bub])
 			del_bubble(bub)
 	return points
-			
 
 def show_score(score):
 	c.itemconfig(score_text, text=str(score))
@@ -95,7 +91,6 @@ def show_score(score):
 
 def show_time(time_left):
 	c.itemconfig(time_text, text=str(time_left))
-	
 
 window = Tk()
 window.title("Bubble Blaster") # заголовок окна
@@ -126,7 +121,7 @@ while time() < end:
 	show_time(int(end - time()))
 	window.update()
 	sleep(0.01)
-	
+
 c.create_text(MID_X, MID_Y, text='GAME OVER', fill='white', font=('Helvetica', 30))
 c.create_text(MID_X, MID_Y + 30, text='Score: ' + str(score), fill='white')
 c.create_text(MID_X, MID_Y + 45, text='Bonus time: ' + str(bonus*TIME_LIMIT), fill='white')
